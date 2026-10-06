@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voice-Controlled Wheelchair Using Arduino | Engineering Project</title>
+<meta name="description" content="Arduino-based voice-controlled wheelchair prototype using Bluetooth communication, Arduino UNO and motor control for hands-free assistive mobility research.">
+<meta name="theme-color" content="#07090a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Voice-Controlled Wheelchair Using Arduino | Engineering Project">
+<meta property="og:description" content="Arduino-based voice-controlled wheelchair prototype using Bluetooth communication, Arduino UNO and motor control for hands-free assistive mobility research.">
+<meta property="og:image" content="./assets/images/prototype.svg">
+<link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="top">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top" aria-label="VOICECHAIR home">VOICE<span>CHAIR</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Toggle menu"><i></i><i></i></button>
+    <nav id="menu" aria-label="Primary">
+      <a href="#overview">Overview</a>
+      <a href="#how">How It Works</a>
+      <a href="#hardware">Hardware</a>
+      <a href="#testing">Testing</a>
+      <a href="#future">Future Scope</a>
+      <a href="#team">Team</a>
+      <a href="https://github.com/rishilsriram/voice-controlled-wheelchair" data-github target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="h-hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">ARDUINO-BASED ASSISTIVE MOBILITY SYSTEM</p>
+      <h1 id="h-hero">Voice-Controlled<br>Wheelchair Prototype</h1>
+      <p class="lead">An Arduino-based assistive mobility system that translates smartphone voice commands into wheelchair movement using Bluetooth communication and motor control.</p>
+      <div class="btns"><a class="btn primary" href="#how">Explore Project</a><a class="btn" href="#gallery">View Prototype</a></div>
+    </div>
+    <figure class="hero-img"><img src="./assets/images/prototype.svg" alt="Voice-controlled wheelchair prototype (placeholder image)" width="800" height="600"></figure>
+  </div>
+  <div class="wrap"><ul class="strip" aria-label="Key components">
+    <li>Arduino UNO</li><li>Bluetooth HC-05</li><li>L298N Motor Driver</li><li>12V System</li></ul></div>
+</section>
+
+<section id="overview" class="sec" aria-labelledby="h-over">
+  <div class="wrap">
+    <p class="eyebrow">THE PROBLEM</p>
+    <h2 id="h-over">Technology Designed Around Independence</h2>
+    <div class="two">
+      <p>Conventional manual wheelchairs require physical effort to operate and can be difficult for users with limited upper-body mobility.</p>
+      <p><strong>Objective:</strong> to develop a low-cost voice-controlled wheelchair prototype that allows basic wheelchair movement to be controlled using spoken commands from a smartphone.</p>
+    </div>
+    <div class="trio">
+      <article><h3>Hands-free control</h3><p>Smartphone voice commands reduce dependence on manual wheelchair controls.</p></article>
+      <article><h3>Low-cost approach</h3><p>Built using accessible and readily available Arduino-based electronics.</p></article>
+      <article><h3>User independence</h3><p>Designed to explore more accessible methods of controlling personal mobility.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="sec alt" aria-labelledby="h-how">
+  <div class="wrap">
+    <p class="eyebrow">SYSTEM ARCHITECTURE</p>
+    <h2 id="h-how">How the System Works</h2>
+    <ol class="pipe">
+      <li><span class="n">01</span><h3>Voice input</h3><p>User speaks a command into the smartphone.</p></li>
+      <li><span class="n">02</span><h3>Command conversion</h3><p>The smartphone converts speech into a predefined movement command.</p></li>
+      <li><span class="n">03</span><h3>Bluetooth transmission</h3><p>The HC-05 module transmits the command wirelessly.</p></li>
+      <li><span class="n">04</span><h3>Arduino processing</h3><p>Arduino UNO receives and interprets the command.</p></li>
+      <li><span class="n">05</span><h3>Motor control</h3><p>The L298N motor driver controls the DC motors.</p></li>
+      <li><span class="n">06</span><h3>Wheelchair movement</h3><p>The prototype executes the requested movement.</p></li>
+    </ol>
+
+    <h3 class="sub">Voice-to-Motion Control</h3>
+    <ul class="cmds">
+      <li><code>"Forward"</code><span>Move forward</span></li>
+      <li><code>"Backward"</code><span>Move backward</span></li>
+      <li><code>"Left"</code><span>Turn left</span></li>
+      <li><code>"Right"</code><span>Turn right</span></li>
+      <li><code>"Stop"</code><span>Stop motors</span></li>
+    </ul>
+    <ol class="chain" aria-label="Signal path"><li>Voice</li><li>Phone</li><li>Bluetooth</li><li>Arduino</li><li>Motor driver</li><li>Motors</li></ol>
+  </div>
+</section>
+
+<section id="hardware" class="sec" aria-labelledby="h-hw">
+  <div class="wrap">
+    <p class="eyebrow">SYSTEM COMPONENTS</p>
+    <h2 id="h-hw">Hardware Architecture</h2>
+    <article class="hw"><figure><img src="./assets/images/arduino.svg" alt="Arduino UNO board (placeholder)" loading="lazy" width="800" height="600"></figure>
+      <div><p class="role">Role: Main microcontroller</p><h3>Arduino UNO</h3><p>Receives serial commands from the Bluetooth module, interprets movement instructions and controls motor-driver signals.</p></div></article>
+    <article class="hw"><figure><img src="./assets/images/hc05.svg" alt="HC-05 Bluetooth module (placeholder)" loading="lazy" width="800" height="600"></figure>
+      <div><p class="role">Role: Wireless communication</p><h3>HC-05 Bluetooth module</h3><p>Provides serial Bluetooth communication between the smartphone and Arduino.</p></div></article>
+    <article class="hw"><figure><img src="./assets/images/l298n.svg" alt="L298N motor driver (placeholder)" loading="lazy" width="800" height="600"></figure>
+      <div><p class="role">Role: Motor control</p><h3>L298N motor driver</h3><p>Dual H-bridge motor driver used to control motor direction and movement.</p></div></article>
+    <article class="hw"><figure><img src="./assets/images/motors.svg" alt="DC motors (placeholder)" loading="lazy" width="800" height="600"></figure>
+      <div><p class="role">Role: Wheel movement</p><h3>DC motors</h3><p>Drive the left and right wheels of the prototype.</p></div></article>
+    <article class="hw"><figure><img src="./assets/images/power.svg" alt="12V power supply (placeholder)" loading="lazy" width="800" height="600"></figure>
+      <div><p class="role">Role: Prototype power source</p><h3>12V power supply</h3><p>Supplies the motor system of the prototype.</p></div></article>
+
+    <h3 class="sub">Hardware connection flow</h3>
+    <div class="flow" role="img" aria-label="Smartphone connects by Bluetooth to HC-05, by serial to Arduino UNO, by control signals to the L298N, which drives the left and right motors">
+      <div class="node">Smartphone</div><div class="link">Bluetooth</div>
+      <div class="node">HC-05</div><div class="link">Serial communication</div>
+      <div class="node">Arduino UNO</div><div class="link">Control signals</div>
+      <div class="node">L298N motor driver</div><div class="link"></div>
+      <div class="pair"><div class="node">Left motor</div><div class="node">Right motor</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="logic" class="sec alt" aria-labelledby="h-logic">
+  <div class="wrap">
+    <p class="eyebrow">CONTROL LOGIC</p>
+    <h2 id="h-logic">Command Processing Logic</h2>
+    <div class="flow chart">
+      <div class="node end">Start</div><div class="link"></div>
+      <div class="node">Initialize Bluetooth communication</div><div class="link"></div>
+      <div class="node">Wait for command</div><div class="link"></div>
+      <div class="node">Receive command</div><div class="link"></div>
+      <div class="node dec">Identify command</div><div class="link"></div>
+      <ul class="branch"><li>Forward</li><li>Backward</li><li>Left</li><li>Right</li><li>Stop</li><li class="dflt">Unrecognized: Stop</li></ul><div class="link"></div>
+      <div class="node">Send corresponding signals to motor driver</div><div class="link"></div>
+      <div class="node">Control motors</div><div class="link"></div>
+      <div class="node end">Return to waiting state</div>
+    </div>
+  </div>
+</section>
+
+<section id="testing" class="sec" aria-labelledby="h-test">
+  <div class="wrap">
+    <p class="eyebrow">FUNCTIONAL VERIFICATION</p>
+    <h2 id="h-test">Preliminary Indoor Test Results</h2>
+    <dl class="metrics">
+      <div><dt>Movement commands tested</dt><dd>5 / 5</dd></div>
+      <div><dt>Tested unknown-input stop response</dt><dd>100%</dd></div>
+      <div><dt>Motor power supply</dt><dd>12V</dd></div>
+    </dl>
+    <div class="tbl"><table>
+      <thead><tr><th scope="col">Command</th><th scope="col">Expected result</th><th scope="col">Test result</th></tr></thead>
+      <tbody>
+        <tr><td>Forward</td><td>Both motors drive forward</td><td class="ok">Passed</td></tr>
+        <tr><td>Backward</td><td>Both motors reverse</td><td class="ok">Passed</td></tr>
+        <tr><td>Left</td><td>Direction adjusted for left turn</td><td class="ok">Passed</td></tr>
+        <tr><td>Right</td><td>Direction adjusted for right turn</td><td class="ok">Passed</td></tr>
+        <tr><td>Stop</td><td>Motors stop</td><td class="ok">Passed</td></tr>
+      </tbody></table></div>
+    <p class="note">These are preliminary prototype tests carried out indoors. They are not certified safety results.</p>
+
+    <aside class="safety" aria-labelledby="h-safe">
+      <h3 id="h-safe">Safety-oriented control</h3>
+      <p>The prototype uses a default-stop approach: any unsupported or unrecognized command stops the motors.</p>
+      <p><strong>This project is an educational prototype and is not a certified medical mobility device.</strong></p>
+    </aside>
+  </div>
+</section>
+
+<section id="future" class="sec alt" aria-labelledby="h-fut">
+  <div class="wrap">
+    <p class="eyebrow">FUTURE WORK</p>
+    <h2 id="h-fut">Where the Project Can Go Next</h2>
+    <p class="lead small">None of the items below are implemented in the current prototype.</p>
+    <ul class="road">
+      <li><span class="tag">Future work</span><h3>Obstacle detection</h3><p>Ultrasonic sensors could identify nearby obstacles.</p></li>
+      <li><span class="tag">Future work</span><h3>Emergency stop</h3><p>Dedicated physical emergency-stop mechanism.</p></li>
+      <li><span class="tag">Future work</span><h3>GPS tracking</h3><p>Location monitoring for future prototypes.</p></li>
+      <li><span class="tag">Future work</span><h3>Battery monitoring</h3><p>Real-time battery-level information.</p></li>
+      <li><span class="tag">Future work</span><h3>Improved voice recognition</h3><p>More robust command recognition.</p></li>
+      <li><span class="tag">Future work</span><h3>Mobile application</h3><p>Dedicated interface for control and system status.</p></li>
+      <li><span class="tag">Future work</span><h3>IoT monitoring</h3><p>Optional remote telemetry.</p></li>
+      <li><span class="tag">Future work</span><h3>Autonomous navigation</h3><p>Long-term exploration of assisted navigation.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="gallery" class="sec" aria-labelledby="h-gal">
+  <div class="wrap">
+    <p class="eyebrow">PROJECT GALLERY</p>
+    <h2 id="h-gal">The Prototype Up Close</h2>
+    <ul class="gallery" id="gallery-grid"></ul>
+  </div>
+</section>
+
+<section id="team" class="sec alt" aria-labelledby="h-team">
+  <div class="wrap">
+    <p class="eyebrow">THE PEOPLE</p>
+    <h2 id="h-team">Project Team</h2>
+    <ul class="team">
+      <li><h3>Ananya</h3><p>25WU0102264</p></li>
+      <li><h3>Sufiyan</h3><p>25WU0102330</p></li>
+      <li><h3>Pranathi</h3><p>25WU0104024</p></li>
+      <li><h3>Rishil</h3><p>25WU0102274</p></li>
+    </ul>
+    <dl class="meta">
+      <div><dt>Program</dt><dd>CSE (AI &amp; ML)</dd></div>
+      <div><dt>Department</dt><dd>School of Technology</dd></div>
+      <div><dt>Mentor</dt><dd>Dr. Geeta Tripathi</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="sec gh" aria-labelledby="h-gh">
+  <div class="wrap">
+    <h2 id="h-gh">Explore the Project</h2>
+    <p class="lead">View the source code, documentation and development files for the Voice-Controlled Wheelchair project.</p>
+    <a class="btn primary" data-github href="https://github.com/rishilsriram/voice-controlled-wheelchair" target="_blank" rel="noopener">View on GitHub</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div><a class="logo" href="#top">VOICE<span>CHAIR</span></a><p>Arduino-based hands-free assistive mobility prototype.</p></div>
+    <nav aria-label="Footer"><a href="#overview">Overview</a><a href="#how">How It Works</a><a href="#hardware">Hardware</a><a href="#testing">Testing</a><a href="#future">Future Scope</a><a href="#team">Team</a></nav>
+    <div><p class="eyebrow">Project Team</p><p>CSE (AI &amp; ML)<br>School of Technology</p><p>Mentor: Dr. Geeta Tripathi</p></div>
+  </div>
+  <div class="wrap foot-base"><span>&copy; 2026 VOICECHAIR</span><span>Student Engineering Project</span></div>
+</footer>
+
+<a class="totop" href="#top" aria-label="Back to top" hidden>&uarr;</a>
+<dialog id="lightbox" aria-label="Image viewer">
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="lb-x" aria-label="Close">&times;</button>
+  <button class="lb-p" aria-label="Previous image">&lsaquo;</button>
+  <button class="lb-n" aria-label="Next image">&rsaquo;</button>
+</dialog>
+<script src="./script.js"></script>
+</body>
+</html>
